@@ -2,13 +2,22 @@
 <html>
 
 <head>
-    <title>slidy-scrambler</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link rel="stylesheet" href="style.css">
+    <title>15 Puzzle Scrambler</title>
     <script type="module">
-        import init from "./init.js";
-        await init("./module_bg.wasm");
+        import init from "./slidy_scrambler.js";
+        await init("./slidy_scrambler_bg.wasm");
     </script>
 </head>
 
-<body></body>
+<body>
+    <div class="page">
+        <div class="header" id="header"></div>
+        <table id="main-table"></table>
+        <div class="section-title">Extra Scrambles</div>
+        <table id="extras-table"></table>
+    </div>
+</body>
 
 </html>
