@@ -11,9 +11,13 @@ default = ["console_error_panic_hook"]
 
 [dependencies]
 console_error_panic_hook = { version = "^0.1", optional = true }
+getrandom = { version = "0.3.3", features = ["wasm_js"] }
+itertools = "0.14.0"
 log = "^0.4"
+slidy = { path = "../slidy" }
 wasm-bindgen = "^0.2"
 wasm-logger = "^0.2"
+web-sys = { version = "^0.3", features = ["Document", "HtmlElement", "Window"] }
 
 [profile.release]
 opt-level = "s"
