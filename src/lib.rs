@@ -33,8 +33,6 @@ pub fn main() {
         let mut state = Puzzle::default();
         RandomState.scramble(&mut state);
 
-        log::info!("State {i}: {state}");
-
         let solution = solver.solve(&state).unwrap();
         let scramble = solution.inverse();
 
@@ -46,15 +44,12 @@ pub fn main() {
                 if m.amount() == 1 {
                     s.push_str(" ");
                 }
-                log::info!("{s:?}");
                 s
             })
             .chunks(10)
             .into_iter()
             .map(|mut chunk| chunk.join(" "))
             .join("\n");
-
-        log::info!("Scramble {i}: {scramble}");
 
         let svg = renderer.render(&state).unwrap();
 
