@@ -33,13 +33,13 @@ pub fn main() {
     let main_table = get_element_by_id("main-table");
     let extras_table = get_element_by_id("extras-table");
 
-    for i in 0..5 {
-        let row = make_scramble_row(i + 1, &solver, &renderer);
+    for i in 1..6 {
+        let row = make_scramble_row(&i.to_string(), &solver, &renderer);
         main_table.append_child(&row).unwrap();
     }
 
-    for i in 0..2 {
-        let row = make_scramble_row(i + 1, &solver, &renderer);
+    for i in 1..3 {
+        let row = make_scramble_row(&format!("E{i}"), &solver, &renderer);
         extras_table.append_child(&row).unwrap();
     }
 }
@@ -56,7 +56,7 @@ fn get_element_by_id(id: &str) -> HtmlElement {
     element.dyn_into::<HtmlElement>().unwrap()
 }
 
-fn make_scramble_row(row_num: u32, solver: &Solver, renderer: &Renderer) -> HtmlElement {
+fn make_scramble_row(scramble_name: &str, solver: &Solver, renderer: &Renderer) -> HtmlElement {
     let mut state = Puzzle::default();
     RandomState.scramble(&mut state);
 
@@ -92,7 +92,7 @@ fn make_scramble_row(row_num: u32, solver: &Solver, renderer: &Renderer) -> Html
 
     let col_num = create_element("td");
     col_num.set_class_name("col-num");
-    col_num.set_inner_text(&row_num.to_string());
+    col_num.set_inner_text(scramble_name);
     tr.append_child(&col_num).unwrap();
 
     let col_scramble = create_element("td");
