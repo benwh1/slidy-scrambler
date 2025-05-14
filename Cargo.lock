@@ -255,6 +255,8 @@ dependencies = [
 [[package]]
 name = "slidy"
 version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d452e11e13b5c8b9ac983dea2a83c1c0c7ba5dcc843aa932f058f6caf7ea0a16"
 dependencies = [
  "enterpolation",
  "itertools",
